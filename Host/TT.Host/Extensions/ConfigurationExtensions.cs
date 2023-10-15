@@ -8,7 +8,7 @@ namespace TT.Host.Extensions
     {
         public static IServiceCollection AddConfig(this IServiceCollection services, IConfiguration configuration)
         {
-            return services.Configure<DataAccessConfigSection>(configuration.GetSection(DataAccessConfigSection.Name);
+            return services.Configure<DataAccessConfigSection>(configuration.GetSection(DataAccessConfigSection.Name));
         }
     }
 }

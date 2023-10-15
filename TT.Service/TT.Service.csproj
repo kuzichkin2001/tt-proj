@@ -13,7 +13,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HostExtensions\TT.Host.csproj" />
+    <ProjectReference Include="..\Host\TT.Host\TT.Host.csproj" />
     <ProjectReference Include="..\TeachersTogether.Shared\TT.Shared.csproj" />
+    <ProjectReference Include="..\TT.Shared\TT.Shared.csproj" />
   </ItemGroup>
 
 </Project>
