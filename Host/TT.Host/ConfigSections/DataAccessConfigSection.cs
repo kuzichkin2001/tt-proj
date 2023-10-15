@@ -6,6 +6,6 @@
 
         public static string Path => "root:dataAccess";
 
-        public required string ConnectionString;
+        public required string ConnectionString { get; set; }
     }
 }

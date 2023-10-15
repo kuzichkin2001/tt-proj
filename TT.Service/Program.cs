@@ -1,7 +1,7 @@
 
+using TT.Host.ConfigSections;
 using TT.Host.Extensions;
 using TT.Host.Middlewares;
-using TT.Service.ConfigSections;
 
 namespace TT.Service
 {
@@ -12,7 +12,6 @@ namespace TT.Service
             var builder = WebApplication.CreateBuilder(args);
             var configuration = builder.Configuration;
 
-            // Add services to the container.
             var serviceCollection = builder.Services;
 
             serviceCollection

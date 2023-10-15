@@ -11,7 +11,7 @@
 
         public void ParseConnectionString(string connectionString)
         {
-            if (connectionString == null)
+            if (string.IsNullOrWhiteSpace(connectionString))
             {
                 throw new ArgumentNullException("No connection string provided.");
             }

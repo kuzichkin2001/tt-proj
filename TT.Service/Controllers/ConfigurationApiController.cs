@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TT.Service.ConfigSections;
+using TT.Host.ConfigSections;
 using TT.Service.ViewModels;
 using TT.Shared;
 
-namespace TeachersTogether.Service.Controllers
+namespace TT.Service.Controllers
 {
     [Route("api/configuration")]
     [ApiController]
@@ -23,18 +23,13 @@ namespace TeachersTogether.Service.Controllers
             var connectionString = _dataAccess.ConnectionString;
             var dataAccessParameters = new DataAccessParameters();
 
-            try
-            {
-                dataAccessParameters.ParseConnectionString(connectionString);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            dataAccessParameters.ParseConnectionString(connectionString);
 
             return new ConfigurationViewModel()
             {
                 DataHost = dataAccessParameters["Server"],
+                DataStorageName = dataAccessParameters["Database"],
+                DbPort = dataAccessParameters["Port"],
                 DbUser = dataAccessParameters["User Id"],
                 DbPassword = dataAccessParameters["Password"],
             };
