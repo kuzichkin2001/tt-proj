@@ -10,10 +10,14 @@ namespace TT.Service.Controllers
     public class ConfigurationApiController : ControllerBase
     {
         private readonly DataAccessConfigSection _dataAccess;
+        private readonly DisabledFunctionalConfigSection _disabledFunctional;
 
-        public ConfigurationApiController(DataAccessConfigSection dataAccess)
+        public ConfigurationApiController(
+            DataAccessConfigSection dataAccess,
+            DisabledFunctionalConfigSection disabledFunctional)
         {
             _dataAccess = dataAccess;
+            _disabledFunctional = disabledFunctional;
         }
 
         [HttpGet]
@@ -32,6 +36,8 @@ namespace TT.Service.Controllers
                 DbPort = dataAccessParameters["Port"],
                 DbUser = dataAccessParameters["User Id"],
                 DbPassword = dataAccessParameters["Password"],
+                UiDisabledFeatures = _disabledFunctional.UiDisabledFeatures,
+                BackDisabledControllers = _disabledFunctional.DisabledControllers
             };
         }
     }

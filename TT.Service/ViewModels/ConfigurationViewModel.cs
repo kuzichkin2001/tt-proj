@@ -11,5 +11,9 @@
         public required string DbUser { get; set; }
 
         public required string DbPassword { get; set; }
+
+        public string[] UiDisabledFeatures { get; set; }
+
+        public string[] BackDisabledControllers { get; set; }
     }
 }

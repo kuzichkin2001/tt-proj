@@ -32,7 +32,9 @@ namespace TT.Service
                 app.UseSwaggerUI();
             }
 
-            app.UseMiddleware<RequestLogMiddleware>();
+            app
+                .UseMiddleware<RedirectFromDisabledControllersMiddleware>()
+                .UseMiddleware<RequestLogMiddleware>();
 
             app.UseHttpsRedirection();
 
