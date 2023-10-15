@@ -21,13 +21,15 @@ namespace TT.Host.Extensions
         private static IServiceCollection RegisterConfig(this IServiceCollection services)
         {
             return services
-                .Configure<DataAccessConfigSection>(_configuration.GetSection(DataAccessConfigSection.Name));
+                .Configure<DataAccessConfigSection>(_configuration.GetSection(DataAccessConfigSection.Name))
+                .Configure<DisabledFunctionalConfigSection>(_configuration.GetSection(DisabledFunctionalConfigSection.Name));
         }
 
         private static IServiceCollection AddConfigSingletons(this IServiceCollection services)
         {
             return services
-                .AddSingleton(_configuration.GetSection(DataAccessConfigSection.Name).Get<DataAccessConfigSection>());
+                .AddSingleton(_configuration.GetSection(DataAccessConfigSection.Name).Get<DataAccessConfigSection>())
+                .AddSingleton(_configuration.GetSection(DisabledFunctionalConfigSection.Name).Get<DisabledFunctionalConfigSection>());
         }
     }
 }
